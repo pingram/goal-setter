@@ -55,15 +55,19 @@ feature "goal index" do
     sign_up("user1")
     create_new_goal(user1)
     create_new_goal(user1)
+
     fill_in_new_goal(user1)
     select('Private', from: "goal_privacy")
     click_button("Create Goal")
+
     click_button("Sign Out")
+
     sign_up("user2")
     create_new_goal(user2)
     fill_in_new_goal(user2)
     select('Private', from: "goal_privacy")
     click_button("Create Goal")
+
     visit goals_url
   end
 
