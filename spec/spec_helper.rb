@@ -59,7 +59,7 @@ def fill_in_new_goal(user)
   visit user_url(user)
   fill_in "Name", with: Faker::Company.catch_phrase
   fill_in "Description", with: Faker::Company.bs
-  select('Private', from: "goal_privacy")
+  select('Public', from: "goal_privacy")
 end
 
 def create_new_goal(user)

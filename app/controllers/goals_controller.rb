@@ -28,6 +28,7 @@ class GoalsController < ApplicationController
   end
 
   def index
+    @goals = current_user.find_index_goals
   end
 
   def destroy

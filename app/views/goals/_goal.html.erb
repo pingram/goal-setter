@@ -1,6 +1,7 @@
 <strong>Goal <%= goal_num + 1 %>. <%= goal.name %></strong>
 <ul>
-<li><%= goal.description %></li>
-<li><%= goal.privacy %></li>
-<li><%= goal.completed %></li>
+  <li>User: <%= goal.user.username %></li>
+  <li><%= goal.description %></li>
+  <li><%= goal.privacy %></li>
+  <li><%= goal.completed %></li>
 </ul>

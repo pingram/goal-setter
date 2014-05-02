@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(plain_text)
   end
 
+  def find_index_goals
+    Goal.where("goals.privacy = 'public' OR goals.user_id = ?", self.id)
+  end
+
   private
 
   def ensure_session_token
