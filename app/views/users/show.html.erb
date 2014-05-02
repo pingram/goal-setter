@@ -1,2 +1,7 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<% @user.goals.each_with_index do |goal, n| %>
+  <%= render partial: goal, locals: { goal: goal, goal_num: n } %>
+<% end%>
+
+<%= render "/goals/new" %>

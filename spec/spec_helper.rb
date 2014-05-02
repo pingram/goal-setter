@@ -4,6 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
+require 'Faker'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -52,4 +53,16 @@ end
 
 def sign_up_as_testing_username
   sign_up("testing_username")
+end
+
+def fill_in_new_goal(user)
+  visit user_url(user)
+  fill_in "Name", with: Faker::Company.catch_phrase
+  fill_in "Description", with: Faker::Company.bs
+  select('Private', from: "goal_privacy")
+end
+
+def create_new_goal(user)
+  fill_in_new_goal(user)
+  click_button "Create Goal"
 end
