@@ -7,7 +7,7 @@ feature "goal comment creation process" do
 
   scenario "creates a new comment" do
     sign_in(user1.username, 'asdfasdf')
-    visit new_goal_url(goal)
+    visit goal_url(goal)
     fill_in "Comment", with: "cool goal brah"
     click_button "Add Comment"
     expect(page).to have_content("cool goal brah")
