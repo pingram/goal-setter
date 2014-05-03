@@ -4,4 +4,5 @@ class Goal < ActiveRecord::Base
   validates :privacy, inclusion: { in: ["private", "public"] }
 
   belongs_to :user
+  has_many :comments, as: :commentable
 end

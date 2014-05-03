@@ -5,3 +5,7 @@
 <% end%>
 
 <%= render "/goals/new" %>
+<%= render @user.comments %>
+<h3>Add Comment:</h3>
+<%= render partial: "shared/comment_form",
+  locals: { id: @user.id, type: "User"} %>
